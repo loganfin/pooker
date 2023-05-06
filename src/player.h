@@ -3,14 +3,19 @@
 #include "card.h"
 
 #include <memory>
+#include <string>
 #include <vector>
 
 class Player {
     public:
+        Player(std::string n = "null");
+
         void add_card(std::unique_ptr<Card> card);
-        void show_hand();
-        std::vector<std::unique_ptr<Card> > return_hand();
+        std::vector<Card> show_hand();
+        std::vector<std::unique_ptr<Card> >& return_hand();
+        std::string get_name();
 
     private:
         std::vector<std::unique_ptr<Card> > hand;
+        std::string name;
 };
