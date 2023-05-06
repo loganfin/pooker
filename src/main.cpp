@@ -22,18 +22,21 @@ int main()
         }
     }
 
-    std::cout << "number of cards left in the deck: " << '\n';
+    std::cout << "number of cards left in the deck:" << '\n';
     std::cout << deck.cards_left() << '\n';
 
     for (auto& player : players) {
-        std::cout << player.get_name() << "'s hand: " << '\n';
+        std::cout << player.get_name() << "'s hand:" << '\n';
         for (auto& card : player.show_hand()) {
             std::cout << card.get_rank() << " " << card.get_suit() << '\n';
         }
 
         deck.add_cards(player.return_hand());
+
+        std::cout << "number of cards left in " << player.get_name() << "'s deck:" << '\n';
+        std::cout << player.cards_left() << '\n';
     }
 
-    std::cout << "number of cards left in the deck: " << '\n';
+    std::cout << "number of cards left in the deck:" << '\n';
     std::cout << deck.cards_left() << '\n';
 }

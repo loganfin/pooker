@@ -12,8 +12,9 @@ class Player {
 
         void add_card(std::unique_ptr<Card> card);
         std::vector<Card> show_hand();
-        std::vector<std::unique_ptr<Card> >& return_hand();
+        std::vector<std::unique_ptr<Card> > return_hand();
         std::string get_name();
+        int cards_left();
 
     private:
         std::vector<std::unique_ptr<Card> > hand;
