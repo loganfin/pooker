@@ -22,6 +22,9 @@ int main()
         }
     }
 
+    std::cout << "number of cards left in the deck: " << '\n';
+    std::cout << deck.cards_left() << '\n';
+
     for (auto& player : players) {
         std::cout << player.get_name() << "'s hand: " << '\n';
         for (auto& card : player.show_hand()) {
@@ -32,4 +35,7 @@ int main()
             deck.add_card(card);
         }
     }
+
+    std::cout << "number of cards left in the deck: " << '\n';
+    std::cout << deck.cards_left() << '\n';
 }

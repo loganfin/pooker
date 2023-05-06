@@ -32,3 +32,8 @@ void Deck::add_card(std::unique_ptr<Card>& card)
 {
     cards.push_back(std::move(card));
 }
+
+int Deck::cards_left()
+{
+    return cards.size();
+}
