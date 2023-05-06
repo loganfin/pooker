@@ -12,8 +12,8 @@ class Card {
     public:
         Card(Rank r, Suit s);
 
-        Rank get_rank();
-        Suit get_suit();
+        Rank get_rank() const;
+        Suit get_suit() const;
     private:
         Rank rank;
         Suit suit;
