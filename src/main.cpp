@@ -24,8 +24,12 @@ int main()
 
     for (auto& player : players) {
         std::cout << player.get_name() << "'s hand: " << '\n';
-        for (auto& i : player.show_hand()) {
-            std::cout << i.get_rank() << " " << i.get_suit() << '\n';
+        for (auto& card : player.show_hand()) {
+            std::cout << card.get_rank() << " " << card.get_suit() << '\n';
+        }
+
+        for (auto& card : player.return_hand()) {
+            deck.add_card(card);
         }
     }
 }

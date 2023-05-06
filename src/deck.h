@@ -11,6 +11,7 @@ class Deck {
 
         void shuffle();
         std::unique_ptr<Card> draw();
+        void add_card(std::unique_ptr<Card>& card);
 
     private:
         std::vector<std::unique_ptr<Card> > cards;
