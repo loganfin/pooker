@@ -2,24 +2,30 @@
 #include "player.h"
 
 #include <iostream>
+#include <string>
+#include <vector>
+
+const int hand_size = 2;
 
 int main()
 {
     Deck deck;
+    std::vector<Player> players;
 
-    Player p1;
-    Player p2;
+    players.push_back(Player("Dennis"));
+    players.push_back(Player("Marge"));
+    players.push_back(Player());
 
-    p1.add_card(deck.draw());
-    p2.add_card(deck.draw());
-    p1.add_card(deck.draw());
-    p2.add_card(deck.draw());
+    for (int i = 0; i < hand_size; i++) {
+        for (auto& player : players) {
+            player.add_card(deck.draw());
+        }
+    }
 
-    std::cout << "player 1 hand:\n";
-    p1.show_hand();
-
-    std::cout << '\n';
-
-    std::cout << "player 2 hand:\n";
-    p2.show_hand();
+    for (auto& player : players) {
+        std::cout << player.get_name() << "'s hand: " << '\n';
+        for (auto& i : player.show_hand()) {
+            std::cout << i.get_rank() << " " << i.get_suit() << '\n';
+        }
+    }
 }
