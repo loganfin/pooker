@@ -31,9 +31,7 @@ int main()
             std::cout << card.get_rank() << " " << card.get_suit() << '\n';
         }
 
-        for (auto& card : player.return_hand()) {
-            deck.add_card(card);
-        }
+        deck.add_cards(player.return_hand());
     }
 
     std::cout << "number of cards left in the deck: " << '\n';

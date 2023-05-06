@@ -33,6 +33,13 @@ void Deck::add_card(std::unique_ptr<Card>& card)
     cards.push_back(std::move(card));
 }
 
+void Deck::add_cards(std::vector<std::unique_ptr<Card> >& cards)
+{
+    for (auto& card : cards) {
+        this->cards.push_back(std::move(card));
+    }
+}
+
 int Deck::cards_left()
 {
     return cards.size();
