@@ -6,6 +6,7 @@
 
 #include <memory>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 enum Hand {
@@ -29,6 +30,6 @@ class Game {
 
     private:
         Deck deck;
-        std::vector<Player> players;
+        std::unordered_map<std::string, Player> players;
         std::vector<std::unique_ptr<Card> > table;
 };
