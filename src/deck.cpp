@@ -1,7 +1,9 @@
 #include "deck.h"
 #include "card.h"
 
+#include <algorithm>
 #include <memory>
+#include <random>
 #include <vector>
 
 Deck::Deck()
@@ -15,6 +17,8 @@ Deck::Deck()
 
 void Deck::shuffle()
 {
+    auto rng = std::default_random_engine {};
+    std::shuffle(std::begin(cards), std::end(cards), rng);
 }
 
 std::unique_ptr<Card> Deck::draw()

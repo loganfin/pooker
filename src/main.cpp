@@ -16,6 +16,7 @@ int main()
     players.push_back(Player("Dennis"));
 
     for (int i = 0; i < num_games; i++) {
+        deck.shuffle();
         for (int j = 0; j < hand_size; j++) {
             for (auto& player : players) {
                 player.add_card(deck.draw());
