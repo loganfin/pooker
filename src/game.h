@@ -23,6 +23,7 @@ class Game {
         Game(std::vector<std::string> names);
 
         void add_player(std::string name);
+        bool remove_player(std::string name);
         void advance_turn();
         Turn get_turn();
         void deal(int num_cards = 2);
