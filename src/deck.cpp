@@ -40,7 +40,7 @@ void Deck::add_cards(std::vector<std::unique_ptr<Card> > cards)
     }
 }
 
-int Deck::cards_left()
+int Deck::size()
 {
     return cards.size();
 }

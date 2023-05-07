@@ -13,7 +13,7 @@ class Deck {
         std::unique_ptr<Card> draw();
         void add_card(std::unique_ptr<Card>& card);
         void add_cards(std::vector<std::unique_ptr<Card> > card);
-        int cards_left();
+        int size();
 
     private:
         std::vector<std::unique_ptr<Card> > cards;
