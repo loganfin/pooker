@@ -14,7 +14,7 @@ class Player {
         std::vector<Card> show_hand();
         std::vector<std::unique_ptr<Card> > return_hand();
         std::string get_name();
-        int cards_left();
+        int hand_size();
 
     private:
         std::vector<std::unique_ptr<Card> > hand;

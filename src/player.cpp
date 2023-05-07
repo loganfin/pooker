@@ -39,7 +39,7 @@ std::string Player::get_name()
     return name;
 }
 
-int Player::cards_left()
+int Player::hand_size()
 {
     return hand.size();
 }
