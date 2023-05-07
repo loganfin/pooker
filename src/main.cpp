@@ -6,6 +6,7 @@
 #include <vector>
 
 const int hand_size = 2;
+const int num_games = 26;
 
 int main()
 {
@@ -13,30 +14,24 @@ int main()
     std::vector<Player> players;
 
     players.push_back(Player("Dennis"));
-    players.push_back(Player("Marge"));
-    players.push_back(Player());
 
-    for (int i = 0; i < hand_size; i++) {
+    for (int i = 0; i < num_games; i++) {
+        for (int j = 0; j < hand_size; j++) {
+            for (auto& player : players) {
+                player.add_card(deck.draw());
+            }
+        }
+
         for (auto& player : players) {
-            player.add_card(deck.draw());
-        }
-    }
+            std::cout << player.get_name() << "'s hand:" << '\n';
+            for (auto& card : player.show_hand()) {
+                std::cout << card.get_rank() << " " << card.get_suit() << '\n';
+            }
 
-    std::cout << "number of cards left in the deck:" << '\n';
-    std::cout << deck.cards_left() << '\n';
+            deck.add_cards(player.return_hand());
 
-    for (auto& player : players) {
-        std::cout << player.get_name() << "'s hand:" << '\n';
-        for (auto& card : player.show_hand()) {
-            std::cout << card.get_rank() << " " << card.get_suit() << '\n';
         }
 
-        deck.add_cards(player.return_hand());
-
-        std::cout << "number of cards left in " << player.get_name() << "'s deck:" << '\n';
-        std::cout << player.cards_left() << '\n';
+        std::cout << '\n';
     }
-
-    std::cout << "number of cards left in the deck:" << '\n';
-    std::cout << deck.cards_left() << '\n';
 }

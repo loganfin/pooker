@@ -16,8 +16,8 @@ std::vector<Card> Player::show_hand()
 {
     std::vector<Card> shown;
 
-    for (auto& i : hand) {
-        shown.push_back(Card(i->get_rank(), i->get_suit()));
+    for (std::unique_ptr<Card>& card : hand) {
+        shown.push_back(Card(card->get_rank(), card->get_suit()));
     }
 
     return shown;
@@ -29,8 +29,8 @@ std::vector<std::unique_ptr<Card> > Player::return_hand()
 
     for (auto& card : hand) {
         temp.push_back(std::move(card));
-        hand.pop_back();
     }
+    hand.clear();
     return temp;
 }
 
