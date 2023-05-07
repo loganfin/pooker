@@ -1,3 +1,4 @@
+#include "game.h"
 #include "deck.h"
 #include "player.h"
 
@@ -10,6 +11,15 @@ const int num_games = 26;
 
 int main()
 {
+    Game holdem;
+    /*
+    holdem.add_player("Dennis");
+    holdem.deal(2);
+    holdem.advance_turn();
+    holdem.advance_turn();
+    holdem.advance_turn();
+    */
+
     Deck deck;
     std::vector<Player> players;
 

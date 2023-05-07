@@ -8,6 +8,7 @@ add_executable(${CMAKE_PROJECT_NAME}
     src/main.cpp
     src/card.cpp
     src/deck.cpp
+    src/game.cpp
     src/player.cpp
     )
 
