@@ -15,6 +15,6 @@ class Card {
         Rank get_rank() const;
         Suit get_suit() const;
     private:
-        Rank rank;
-        Suit suit;
+        const Rank rank;
+        const Suit suit;
 };
