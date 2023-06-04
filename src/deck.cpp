@@ -8,9 +8,9 @@
 
 Deck::Deck()
 {
-    for (int suit = CLUBS; suit <= SPADES; suit++) {
-        for (int rank = ACE; rank <= KING; rank++) {
-            cards.push_back(std::make_unique<Card>(static_cast<Rank>(rank), static_cast<Suit>(suit)));
+    for (Suit suit = Suit::BEGIN; suit < Suit::END; ++suit) {
+        for (Rank rank = Rank::BEGIN; rank < Rank::END; ++rank) {
+            cards.push_back(std::make_unique<Card>(rank, suit));
         }
     }
 }

@@ -1,12 +1,24 @@
 #pragma once
 
-enum Rank {
-    ACE = 1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
+#include <iostream>
+
+enum class Rank {
+    BEGIN = 1,
+    ACE = BEGIN, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING,
+    END
 };
 
-enum Suit {
-    CLUBS = 0, DIAMONDS, HEARTS, SPADES
+Rank& operator++(Rank& rank);
+std::ostream& operator<<(std::ostream& stream, Rank rank);
+
+enum class Suit {
+    BEGIN = 0,
+    CLUBS = BEGIN, DIAMONDS, HEARTS, SPADES,
+    END
 };
+
+Suit& operator++(Suit& suit);
+std::ostream& operator<<(std::ostream& stream, Suit suit);
 
 class Card {
     public:

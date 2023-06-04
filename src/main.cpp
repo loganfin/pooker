@@ -36,7 +36,7 @@ int main()
         for (auto& player : players) {
             std::cout << player.get_name() << "'s hand:" << '\n';
             for (auto& card : player.show_hand()) {
-                std::cout << card.get_rank() << " " << card.get_suit() << '\n';
+                std::cout << card.get_rank() << " of " << card.get_suit() << '\n';
             }
 
             deck.add_cards(player.return_hand());
