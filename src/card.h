@@ -10,6 +10,7 @@ enum Suit {
 
 class Card {
     public:
+        Card() = delete;
         Card(Rank r, Suit s);
 
         Rank get_rank() const;
