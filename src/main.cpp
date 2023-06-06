@@ -1,5 +1,6 @@
 #include "card.h"
 #include "deck.h"
+#include "hand.h"
 
 #include <iostream>
 #include <memory>
@@ -7,13 +8,15 @@
 int main()
 {
     Deck deck;
-    std::unique_ptr<Card> temp;
+    Hand hand;
 
-    for (int i = 0; i < 104; i++) {
-        deck.shuffle();
-        temp = deck.draw();
-        std::cout << temp->get_rank() << " of " << temp->get_suit() << '\n';
-        deck.add_card(std::move(temp));
+    for (int i = 0; i < 52; i++) {
+        hand.push_card(deck.draw());
     }
+
+    for (auto& card : hand) {
+        std::cout << *card << '\n';
+    }
+
 }
 
