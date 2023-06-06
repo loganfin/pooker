@@ -10,8 +10,9 @@ int main()
     Deck deck;
     Hand hand;
 
-    for (int i = 0; i < 52; i++) {
-        hand.push_card(deck.draw());
+    deck.shuffle();
+    while (!deck.empty()) {
+        hand.push_card(deck.pop_card());
     }
 
     for (auto& card : hand) {
