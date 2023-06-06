@@ -15,7 +15,6 @@ Rank& operator++(Rank& rank)
 
 std::ostream& operator<<(std::ostream& stream, Rank rank)
 {
-
     switch (rank) {
         case Rank::ACE : return stream << "ACE";
         case Rank::TWO : return stream << "TWO";
@@ -65,4 +64,10 @@ Suit Card::get_suit() const
 Rank Card::get_rank() const
 {
     return rank;
+}
+
+std::ostream& operator<<(std::ostream& stream, Card& card)
+{
+    stream << card.get_rank() << " of " << card.get_suit();
+    return stream;
 }

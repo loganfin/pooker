@@ -27,6 +27,9 @@ class Card {
 
         Suit get_suit() const;
         Rank get_rank() const;
+
+        // overloads
+        friend std::ostream& operator<<(std::ostream& stream, Card& card);
     private:
         const Suit suit;
         const Rank rank;
