@@ -9,12 +9,17 @@
 class Hand {
     public:
         auto begin() { return cards.begin(); }
+        auto begin() const { return cards.begin(); }
         bool empty() const;
         auto end() { return cards.end(); }
+        auto end() const { return cards.end(); }
+        Hand&& make_hand(uint size);
         std::unique_ptr<Card> pop_card();
-        std::vector<std::unique_ptr<Card>> pop_hand();
+        std::vector<std::unique_ptr<Card>> pop_n_cards(const uint n);
+        std::vector<std::unique_ptr<Card>> pop_all_cards();
         void push_card(std::unique_ptr<Card> card);
         void push_cards(std::vector<std::unique_ptr<Card>> hand);
+        void push_hand(Hand&& hand);
         int size() const;
     protected:
         std::vector<std::unique_ptr<Card>> cards;
