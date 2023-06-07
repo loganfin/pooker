@@ -1,6 +1,7 @@
 #include "card.h"
 #include "deck.h"
 #include "hand.h"
+#include "player.h"
 
 #include <iostream>
 #include <memory>
@@ -10,30 +11,19 @@ int main()
     Deck deck;
     std::vector<Hand> hands{2};
 
-    // simple game loop
-    for (int i = 0; i < 10; i++) {
-        deck.shuffle();
-        // deal two cards to each hand
-        for (int j = 0; j < 2; j++) {
-            for (auto& hand : hands) {
-                hand.push_card(deck.pop_card());
-            }
-        }
+    std::vector<Player> players;
+    players.push_back(Player("Bob"));
+    players.push_back(Player("jeff"));
 
-        // print each card in each hand
-        for (auto& hand : hands) {
-            std::cout << "Next hand: " << '\n';
-            for (const auto& card : hand) {
+    for (int i{}; i < 5; i++) {
+        deck.shuffle();
+        for (auto& player : players) {
+            player.fill_hand(deck.make_hand(2));
+            for (const auto& card : player.show_hand()) {
                 std::cout << *card << '\n';
             }
-        }
 
-        // return all cards back to the deck
-        for (auto& hand : hands) {
-            deck.push_cards(hand.pop_hand());
+            deck.push_hand(player.return_hand());
         }
-
-        std::cout << "deck.size(): " << deck.size() << '\n';
     }
 }
-

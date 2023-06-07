@@ -10,4 +10,5 @@ add_executable(${CMAKE_PROJECT_NAME}
     src/card.cpp
     src/deck.cpp
     src/hand.cpp
+    src/player.cpp
     )
