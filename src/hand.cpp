@@ -20,16 +20,22 @@ std::unique_ptr<Card> Hand::pop_card()
     return card;
 }
 
+std::vector<std::unique_ptr<Card>> Hand::pop_hand()
+{
+    return std::move(cards);
+}
+
 void Hand::push_card(std::unique_ptr<Card> card)
 {
     cards.push_back(std::move(card));
 }
 
-/*
-void Hand::push_cards(Hand hand)
+void Hand::push_cards(std::vector<std::unique_ptr<Card>> hand)
 {
+    for (auto& card : hand) {
+        cards.push_back(std::move(card));
+    }
 }
-*/
 
 int Hand::size() const
 {
