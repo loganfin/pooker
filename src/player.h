@@ -11,6 +11,7 @@ class Player {
         void fill_hand(Hand h);
         Hand&& return_hand();
         const Hand& show_hand();
+        std::string get_name() const;
     private:
         Hand hand;
         std::string name;

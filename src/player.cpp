@@ -26,3 +26,8 @@ const Hand& Player::show_hand()
 {
     return hand;
 }
+
+std::string Player::get_name() const
+{
+    return name;
+}
