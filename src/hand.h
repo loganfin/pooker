@@ -13,7 +13,7 @@ class Hand {
         bool empty() const;
         auto end() { return cards.end(); }
         auto end() const { return cards.end(); }
-        Hand&& make_hand(uint size);
+        Hand make_hand(uint size);
         std::unique_ptr<Card> pop_card();
         std::vector<std::unique_ptr<Card>> pop_n_cards(const uint n);
         std::vector<std::unique_ptr<Card>> pop_all_cards();

@@ -9,13 +9,13 @@ bool Hand::empty() const
     return cards.empty();
 }
 
-Hand&& Hand::make_hand(uint size)
+Hand Hand::make_hand(uint size)
 {
-    static Hand temp;
+    Hand temp;
     for (int i = 0; i < size; i++) {
         temp.push_card(pop_card());
     }
-    return std::move(temp);
+    return temp;
 }
 
 std::unique_ptr<Card> Hand::pop_card()
