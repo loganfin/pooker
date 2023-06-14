@@ -8,18 +8,16 @@ Player::Player(std::string n, uint w) : name(n), wallet(w) {}
 
 void Player::fill_hand(Hand h)
 {
-    if (hand.size()) {
-        for (const auto& card : h) {
-            hand.push_card(h.pop_card());
-        }
-    } else {
+    if (hand.empty()) {
         hand = std::move(h);
+    } else {
+        hand.push_hand(std::move(h));
     }
 }
 
-Hand&& Player::return_hand()
+Hand Player::return_hand()
 {
-    return std::move(hand);
+    return hand.pop_hand();
 }
 
 const Hand& Player::show_hand()

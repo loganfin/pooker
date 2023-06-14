@@ -9,7 +9,7 @@ class Player {
         Player(std::string n, uint w);
 
         void fill_hand(Hand h);
-        Hand&& return_hand();
+        Hand return_hand();
         const Hand& show_hand();
         std::string get_name() const;
     private:

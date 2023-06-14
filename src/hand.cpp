@@ -1,6 +1,7 @@
 #include "hand.h"
 
 #include <memory>
+#include <span>
 #include <stdexcept>
 #include <vector>
 
@@ -9,12 +10,22 @@ bool Hand::empty() const
     return cards.empty();
 }
 
-Hand Hand::make_hand(uint size)
+Hand Hand::pop_hand(const int size)
 {
     Hand temp;
-    for (int i = 0; i < size; i++) {
+    const int amount = [size, this]() {
+        switch (size) {
+            // return the entire hand
+            case 0: return this->size();
+            // return a subset of the hand
+            default: return size;
+        }
+    }();
+
+    for (auto& card : std::span(begin(), amount)) {
         temp.push_card(pop_card());
     }
+
     return temp;
 }
 

@@ -14,14 +14,14 @@ int main()
 
     std::vector<Player> players;
     players.push_back(Player("Bob"));
-    players.push_back(Player("jeff"));
+    players.push_back(Player("Jeff"));
 
-    for (int i{}; i < 5; i++) {
+    for (int i{}; i < 52; i++) {
         std::cout << "hand: " << i << '\n';
         deck.shuffle();
         for (auto& player : players) {
             std::cout << player.get_name() << '\n';
-            player.fill_hand(deck.make_hand(2));
+            player.fill_hand(deck.pop_hand(2));
             for (const auto& card : player.show_hand()) {
                 std::cout << *card << '\n';
             }
